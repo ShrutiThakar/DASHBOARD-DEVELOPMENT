@@ -1,1 +1,21 @@
 # DASHBOARD-DEVELOPMENT
+
+*COMPANY*: CODTECH IT SOLUTIONS
+
+*NAME*: SHRUTI ASHOK THAKAR
+
+*INTERN ID*: CT08DF1127
+
+*DOMAIN*: DATA ANALYSIS
+
+*MENTOR*: NEELA SANTOSH
+
+*DESCRIPTION*:This code builds an interactive data visualization dashboard using the Dash framework powered by Plotly, integrated with the classic Iris dataset. It demonstrates how to create a fully functional dashboard inside a Jupyter Notebook or Google Colab, allowing users to explore and gain insights from data through dropdown-based dynamic plots and calculated summaries. The code includes package installation, data loading, layout design, interactivity via callbacks, and live visualization—all implemented in a clean and user-friendly format. The process begins by installing the necessary packages using the command !pip install -q dash pandas plotly. This ensures that the three core libraries—Dash (for dashboard creation), Pandas (for data manipulation), and Plotly (for high-quality interactive plots)—are available in the Colab or Jupyter environment. These libraries form the foundation of interactive data science and visualization projects.
+Next, the relevant Python modules are imported. Dash’s core components are brought in through dash, dcc (Dash Core Components), and html (Dash HTML Components). Input and Output are imported for creating interactivity through callbacks. plotly.express (abbreviated as px) is used for simple and aesthetically pleasing visualizations. The pandas library is used for data handling, while the well-known load_iris() function from scikit-learn is used to load the Iris dataset.
+
+In the data preparation step, the load_iris() function is called to retrieve the Iris dataset, which contains 150 observations of iris flowers with four features: sepal length, sepal width, petal length, and petal width, as well as a categorical target variable indicating the species of the iris flower (setosa, versicolor, and virginica). This data is loaded into a pandas DataFrame for easy handling, and the numerical target codes are converted to readable species names using pd.Categorical.from_codes. After preparing the data, a Dash application is initialized using app = dash.Dash(__name__). The layout of the dashboard is then defined. It consists of a main title, two dropdowns for selecting the X and Y axes of a scatter plot, a Plotly graph component for displaying the scatter plot, and a div box for showing dynamic insights. The dropdowns are populated with the names of the four numerical features in the dataset. This setup allows the user to select any two features for plotting against each other, making the dashboard flexible and exploratory.
+The heart of the interactivity lies in the callback function, which uses Dash's reactive programming model. The @app.callback decorator links the dropdown inputs to two outputs: a scatter plot and a text-based insight box. When the user selects different features from the dropdowns, the callback triggers the update_graph() function, which generates a new scatter plot using plotly.express.scatter() with species color-coding for clarity. Additionally, the function computes and displays a textual insight showing the mean value of the selected Y-axis feature for each iris species. This combines both visual and numerical analysis, enhancing interpretability.
+
+Finally, the app is run using app.run(jupyter_mode='inline'), a setting tailored for Jupyter Notebook and Google Colab environments. This command ensures the dashboard renders directly within the notebook interface rather than opening in a separate browser window, which is crucial for cloud-based workflows. If running in a local development environment, users can instead use app.run_server(debug=True) to launch it in the browser.
+
+In conclusion, this Dash-based dashboard provides a powerful and intuitive interface for visual data exploration. It is an excellent example of how machine learning datasets like Iris can be analyzed interactively with minimal setup. By combining real-time updates, insightful summaries, and customizable visuals, this code serves as a practical template for data analysts, educators, or students seeking to create meaningful visualizations for any tabular dataset. It also showcases how easily Dash and Plotly integrate with Jupyter environments to bridge the gap between code and data storytelling.
